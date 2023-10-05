@@ -1,7 +1,10 @@
-// Input Utils // ~ eylon
+// Input Handler // ~ eylon
 
-#include <string.h>
 #include <io/input.h>
+
+#include <utils/string_utils.h>
+#include <string.h>
+#include <stdio.h> // TODO remove
 
 // Process command line arguments and call the corresponding function
 void process_args(int argc, char* argv[])
@@ -10,27 +13,26 @@ void process_args(int argc, char* argv[])
     // Note that the first item of argv (argv[0]) is the program name
 
     // no arguments/lst :: display the todo list
-    if (argc <= 1 || strcmp(argv[1], "lst")) {
-        
+    if (argc <= 1 || !strcmp(argv[1], "lst")) {
+        // call a function with parameters                
     }
     
     // add an item to the todo list :: arguments=[task string]
-    else if (strcmp(argv[1], "add")) {
-            
+    else if (!strcmp(argv[1], "add")) {
+        // call a function with parameters                
     }
     // remove an item from the todo list :: arguments=[task index]
-    else if (strcmp(argv[1], "rem")) {
-            
+    else if (!strcmp(argv[1], "rem")) {
+        // call a function with parameters                    
     }
 
     // list all the avialable commands
-    else if (strcmp(argv[1], "help") || strcmp(argv[1], "cmd")) {
-
+    else if (!strcmp(argv[1], "help") || !strcmp(argv[1], "cmd")) {
+        // call a function with parameters            
     }
 
     // invalid command
     else {
-
+        // call a function with parameters                
     }
 }
-

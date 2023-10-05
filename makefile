@@ -5,7 +5,7 @@
 ROOT_DIR := $(shell pwd) 
 SRC_DIR  := src
 BIN_DIR  := bin
-INCLUDE_DIR := $(SRC)/include
+INCLUDE_DIR := $(SRC_DIR)/include
 
 SRCS := $(shell find $(SRC_DIR) -name '*.c')
 OBJS := $(patsubst $(SRC_DIR)/%.c, $(BIN_DIR)/%.o, $(SRCS))
@@ -34,7 +34,7 @@ $(BIN_DIR)/%.o: $(SRC_DIR)/%.c
 #---# EXECUTE #---#
 
 run: $(EXECUTABLE)
-	./${EXECUTABLE}
+	./${EXECUTABLE} ${ARGS}
 
 #---# UTILS #---#
 

@@ -1,9 +1,9 @@
 // Shell-Todo Main Source File // ~ eylon
 
-#include <stdio.h>
+#include <io/input.h>
 
-int main()
+int main(int argc, char* argv[])
 {
-	printf("Hello kittens!");
+	process_args(argc, argv);
 	return 0;
 }
