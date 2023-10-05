@@ -1,0 +1,9 @@
+/bin
+/build
+/test
+
+*.o
+*.elf
+*.bin
+*.ignore
+*.todo
