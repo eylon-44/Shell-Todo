@@ -2,6 +2,7 @@
 /build
 /test
 
+.vscode
 *.o
 *.elf
 *.bin
