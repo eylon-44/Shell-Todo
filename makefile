@@ -2,22 +2,12 @@
 
 #---# SETTINGS #---#
 
-ROOT_DIR := $(shell pwd) 
-SRC_DIR  := src
-BIN_DIR  := bin
-INCLUDE_DIR := $(SRC_DIR)/include
+export ROOT_DIR  := $(shell pwd)
+export CONFIG_MK := auto/config.mk
 
-SRCS := $(shell find $(SRC_DIR) -name '*.c')
-OBJS := $(patsubst $(SRC_DIR)/%.c, $(BIN_DIR)/%.o, $(SRCS))
-
-EXECUTABLE := $(BIN_DIR)/shell-todo.bin
-
-CC     := gcc
-CFLAGS := -I$(INCLUDE_DIR) -g -Wall -Wextra
-
+include $(CONFIG_MK)
 
 #---# COMPILE #---#
-
 all: $(EXECUTABLE)
 
 # Link
@@ -34,7 +24,7 @@ $(BIN_DIR)/%.o: $(SRC_DIR)/%.c
 #---# EXECUTE #---#
 
 run: $(EXECUTABLE)
-	./${EXECUTABLE} ${ARGS}
+	${EXECUTABLE} ${ARGS} ${shell cat auto/command-line-arguments}
 
 #---# UTILS #---#
 
