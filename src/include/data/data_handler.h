@@ -9,7 +9,7 @@
 typedef struct
 {
     // Task string and priority number
-    char* task;
+    char* text;
     uint8_t priority;
 
     // The line number in the data file at which the task is ~ real address

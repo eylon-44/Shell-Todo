@@ -6,7 +6,9 @@ ___
 - Todo priority (e.g 2)
 
 The data will be saved and read from the working directory in a file named $.todo$.
+
 <small>Note that the _.todo_ file is local, such that each directory will have its own todo list.</small>
+
 ### Saving a todo
 Using the command as:
 

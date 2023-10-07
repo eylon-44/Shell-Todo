@@ -4,13 +4,12 @@
 
 #include <utils/string_utils.h>
 #include <string.h>
-#include <stdio.h> // TODO remove
 
 // Process command line arguments and call the corresponding function
 void process_args(int argc, char* argv[])
 {
     // A valid input should look like: [program name] [command] [arguments/input]
-    // Note that the first item of argv (argv[0]) is the program name
+    // Note that the first item of argv (argv[0]) is the program name and can be ignored
 
     // no arguments/lst :: display the todo list
     if (argc <= 1 || !strcmp(argv[1], "lst")) {

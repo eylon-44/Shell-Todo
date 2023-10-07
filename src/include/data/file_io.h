@@ -12,6 +12,6 @@ typedef enum
 } WriteMode;
 
 char* read_file();
-int write_file(char* data, uint16_t length, WriteMode write_mode);
+int write_file(char* string, WriteMode write_mode);
 
 #endif

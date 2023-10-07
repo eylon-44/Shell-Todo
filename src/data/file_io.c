@@ -48,18 +48,19 @@ char* read_file()
     return data;
 }
 
-// Append/override a string to a file
-int write_file(char* data, uint16_t length, WriteMode write_mode)
+// Append/override a null terminated string to a file
+int write_file(char* data, WriteMode write_mode)
 {
     char* path = get_data_path();
     FILE* file = fopen(path, write_mode == APPEND ? "a" : "w");
 
+    // [TODO] make a new file if not found
     // if no todo file found
     if (file == NULL) {
         return -1;
     }
 
-    fprintf(file, data);
+    fprintf(file, "%s", data);
 
     // free resources
     fclose(file);
