@@ -6,8 +6,10 @@
 #include <utils/constants.h>
 #include <core/commands.h>
 
+#include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 // Ask for an inteager input indicating the task priority
 static uint16_t priority_input()
@@ -15,7 +17,7 @@ static uint16_t priority_input()
     printf(PRIORITY_INPUT_TEXT);
 
     // get input
-    char* priority_string[1024];
+    char priority_string[1024];
     scanf("%s", priority_string); // reads the first input word
 
     // check validity

@@ -1,5 +1,6 @@
 // Main Command Handler // ~ eylon
 
+#include <core/commands.h>
 #include <io/output.h>
 #include <utils/constants.h>
 #include <data/data_handler.h>
@@ -11,7 +12,9 @@
 // Invoked when the 'list' command or no command is being used :: show the sorted data list
 void cmd_list()
 {
-
+    TodoEntry* todo_list;
+    uint16_t count = get_todos(&todo_list);
+    print_todo_list(todo_list, count);
 }
 
 // Invoked when the 'add' command is being used with valid parameters :: add a todo to the list

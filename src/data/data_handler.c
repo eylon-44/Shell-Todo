@@ -2,6 +2,7 @@
 
 #include <data/data_handler.h>
 #include <data/file_io.h>
+#include <utils/constants.h>
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -27,20 +28,14 @@ void add_todo(TodoEntry* todo)
     free(str);
 }
 
-// Add a todo list to the data file
-void add_todo_list(TodoEntry* todo, uint16_t count)
-{
-
-}
-
 // Remove a todo by its display (virtual) index from the data file
 void remove_todo(uint16_t display_index)
 {
     
 }
 
-// Get the sorted todo list :: Return [uint16_t] list item count :: Take [TodoEntry**] a pointer to the todo list
-uint16_t get_sorted_todos(TodoEntry** todo_list)
+// Get the todo list :: Return [uint16_t] list item count :: Take [TodoEntry**] a pointer to the todo list
+uint16_t get_todos(TodoEntry** todo_list)
 {
     // read file data
     char* data = read_file();
@@ -67,7 +62,6 @@ uint16_t get_sorted_todos(TodoEntry** todo_list)
 
     // go over each TodoEntry, set the priority, copy the string starting from the data[offset]
     uint16_t offset = 0;
-
     for (i = 0; i < item_count; i++)
     {
         uint16_t str_len = strlen(data+offset);
@@ -86,6 +80,20 @@ uint16_t get_sorted_todos(TodoEntry** todo_list)
 
         // set an offset to the next string
         offset += str_len + 1;
+    }
+
+    // sort :: set the display index
+    uint16_t display_index = 1;
+    for (uint8_t p = PRIORITY_MIN; p <= PRIORITY_MAX; p++)
+    {
+        for (i = 0; i < item_count; i++)
+        {
+            if ((*todo_list)[i].priority == p)
+            {
+                (*todo_list)[i].display_index = display_index;
+                display_index++;
+            }
+        }
     }
     
     free(data);

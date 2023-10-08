@@ -21,4 +21,6 @@
 
 #define INVALID_CMD_TEXT "> Invalid use of command, use \"todo help\" to see how to use a command.\n"
 
+#define TODO_OUTPUT_TEXT "> Todo:\n"
+
 #endif
