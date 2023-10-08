@@ -1,8 +1,8 @@
 // Todo Data Handler // ~ eylon
 
 #include <data/data_handler.h>
-
 #include <data/file_io.h>
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,14 +19,16 @@ void add_todo(TodoEntry* todo)
     str[0] = todo->priority + '0';
     // set the task
     strcpy(str+1, todo->text);
+    str[str_len-1] = '\n';
     str[str_len] = '\0';
 
     write_file(str, APPEND);
+
     free(str);
 }
 
 // Add a todo list to the data file
-void add_todo_list(TodoEntry* todo)
+void add_todo_list(TodoEntry* todo, uint16_t count)
 {
 
 }
@@ -37,8 +39,8 @@ void remove_todo(uint16_t display_index)
     
 }
 
-// Get the todo list :: Return [uint16_t] list item count :: Take [TodoEntry**] a pointer to the todo list
-uint16_t get_todos(TodoEntry** todo_list)
+// Get the sorted todo list :: Return [uint16_t] list item count :: Take [TodoEntry**] a pointer to the todo list
+uint16_t get_sorted_todos(TodoEntry** todo_list)
 {
     // read file data
     char* data = read_file();

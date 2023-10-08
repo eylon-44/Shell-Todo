@@ -1,20 +1,24 @@
 // File Input & Output Handling // ~ eylon
 
 #include <data/file_io.h>
+#include <utils/constants.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <unistd.h>
+#include <string.h>
 
 // Local function :: return a string with the data file path
 static char* get_data_path()
 {
     // [TOFREE]
-    char* data = (char*) malloc(1024 * sizeof(char)); // buffer to store the current working directory 
-    getcwd(data, sizeof(data));
+    char* path = (char*) malloc(1024 * sizeof(char)); // buffer to store the current working directory 
+    getcwd(path, 1024);
 
-    return data;
+    strcat(path, DATA_FILE_NAME);
+
+    return path;
 }
 
 // Read an entire file and return a character pointer to his contents :: return NULL if can't read file
@@ -52,6 +56,7 @@ char* read_file()
 int write_file(char* data, WriteMode write_mode)
 {
     char* path = get_data_path();
+    printf(path);
     FILE* file = fopen(path, write_mode == APPEND ? "a" : "w");
 
     // [TODO] make a new file if not found
