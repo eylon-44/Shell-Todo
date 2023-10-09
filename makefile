@@ -36,4 +36,6 @@ add_to_path: $(EXECUTABLE)
 	sudo cp $< /usr/bin/${COMMAND_NAME}
 	sudo chmod +x /usr/bin/${COMMAND_NAME}
 
+	@echo "> Program added to path, use "td" to call it."
+
 .PHONY: all run clean add_to_path
