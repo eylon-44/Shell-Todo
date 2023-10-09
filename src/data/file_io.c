@@ -56,9 +56,14 @@ char* read_file()
 int write_file(char* data, WriteMode write_mode)
 {
     char* path = get_data_path();
+
+    // if file does not exist
+    if (access(path, F_OK) != 0) {
+        printf(NEW_FILE_WARNING_TEXT);
+    }
+
     FILE* file = fopen(path, write_mode == APPEND ? "a" : "w");
 
-    // [TODO] make a new file if not found
     // if no todo file found
     if (file == NULL) {
         return -1;

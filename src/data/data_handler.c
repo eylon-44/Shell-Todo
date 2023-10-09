@@ -129,5 +129,13 @@ uint16_t get_todos(TodoEntry** todo_list)
 // Free a todo list :: free each todo struct and its contents
 void free_todo(TodoEntry** todo, uint16_t count)
 {
-    
+    // go over each todo in the list to free the text
+    for (int t = 0; t < count; t++)
+    {
+        // free text
+        free((*todo)[t].text);
+    }
+
+    // free struct list
+    free(*todo);
 }

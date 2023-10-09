@@ -19,12 +19,14 @@
                       "\n\t-list/[no command] -> display the todo list" \
                       "\n"
 
-#define ADD_CMD_TEXT "Task added.\n"
+#define ADD_CMD_TEXT "> Task added.\n"
 
-#define REM_CMD_TEXT "Task deleted.\n"
+#define REM_CMD_TEXT "> Task deleted.\n"
 
 #define INVALID_CMD_TEXT "> Invalid use of command, use \"todo help\" to see how to use a command.\n"
 
 #define TODO_OUTPUT_TEXT "> Todo:\n"
+
+#define NEW_FILE_WARNING_TEXT "> Warning, created a new \".todo\" file in working directory.\n"
 
 #endif
