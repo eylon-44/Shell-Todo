@@ -13,5 +13,6 @@ typedef enum
 
 char* read_file();
 int write_file(char* string, WriteMode write_mode);
+void delete_line(uint16_t line);
 
 #endif

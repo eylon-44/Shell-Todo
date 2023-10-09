@@ -21,7 +21,7 @@ Using the command as:
 
 will create single new line in the data file, such that the string follows the priotiry number.
 
-$ .todo $
+<big>_.todo_</big>
 > 4The first todo in the list
 > 5This is the second todo in the list
 > 2Pet the cat!
@@ -40,7 +40,7 @@ Using the index of each todo the user can now choose which task to remove.
 
 The selected line will be deleted from the file.
 
-$ .todo $
+<big>_.todo_</big>
 > 4This is the second todo in the list
 2Pet the cat!
 

@@ -20,8 +20,8 @@ typedef struct
 } TodoEntry;
 
 void add_todo(TodoEntry* todo);
-void remove_todo(uint16_t display_index);
+int remove_todo(uint16_t display_index);
 uint16_t get_todos(TodoEntry** todo_list);
-// [TODO] free TodoEntry function
+void free_todo(TodoEntry** todo, uint16_t count);
 
 #endif

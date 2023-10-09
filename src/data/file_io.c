@@ -56,7 +56,6 @@ char* read_file()
 int write_file(char* data, WriteMode write_mode)
 {
     char* path = get_data_path();
-    printf(path);
     FILE* file = fopen(path, write_mode == APPEND ? "a" : "w");
 
     // [TODO] make a new file if not found
@@ -72,4 +71,52 @@ int write_file(char* data, WriteMode write_mode)
     free(path);
 
     return 0;
+}
+
+// delete a line from the data file
+void delete_line(uint16_t line)
+{
+    // get current file data
+    char* data = read_file();
+
+    // find the selected line
+    uint16_t on_line = 0;
+    uint16_t i = 0;
+    uint16_t line_start, line_end;
+    while (data[i] != '\0')
+    {
+        // check when the line starts
+        if (on_line == line) {
+            line_start = i; // DB 0
+            
+            // check when the line ends
+            while (data[i] != '\n') {
+                i++;
+            }
+            line_end = i; // DB 9
+
+            break;
+        }
+
+        // count lines
+        if (data[i] == '\n') {
+            on_line++;
+        }
+
+        i++;
+    }
+
+    // remove the selected line :: copy what comes after the end of the line to the start of the line
+    uint16_t str_len = strlen(data);
+    uint16_t target_len = line_end - line_start + 1;
+    
+    strcpy(data+line_start, data+line_end+2);
+    data[str_len-target_len] = '\0';
+    
+
+    // write changes to file
+    write_file(data, OVERRIDE);
+
+    // free resources
+    free(data);
 }

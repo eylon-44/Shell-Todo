@@ -3,6 +3,7 @@
 #include <data/data_handler.h>
 #include <data/file_io.h>
 #include <utils/constants.h>
+#include <core/commands.h>
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -29,9 +30,34 @@ void add_todo(TodoEntry* todo)
 }
 
 // Remove a todo by its display (virtual) index from the data file
-void remove_todo(uint16_t display_index)
+int remove_todo(uint16_t display_index)
 {
-    
+    TodoEntry* todo_list;
+    uint16_t count = get_todos(&todo_list);
+
+    // if index is out of range
+    if (display_index < 1 || display_index > count) {
+        cmd_invalid();
+        return -1;
+    }
+
+    // find the real index of the todo in the file
+    uint16_t real_index;
+    for (int i = 0; i < count; i++)
+    {
+        if (todo_list[i].display_index == display_index) {
+            real_index = todo_list[i].real_index;
+            break;
+        }
+    }
+
+    // delete the line
+    delete_line(real_index);
+
+    // free resources
+    free_todo(&todo_list, count);
+
+    return 0;
 }
 
 // Get the todo list :: Return [uint16_t] list item count :: Take [TodoEntry**] a pointer to the todo list
@@ -98,4 +124,10 @@ uint16_t get_todos(TodoEntry** todo_list)
     
     free(data);
     return item_count;
+}
+
+// Free a todo list :: free each todo struct and its contents
+void free_todo(TodoEntry** todo, uint16_t count)
+{
+
 }

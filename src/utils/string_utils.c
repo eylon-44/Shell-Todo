@@ -22,6 +22,7 @@ char* word_list_to_string(int argc, char* argv[])
         str[size] = ' ';
         size++;
     }
+    size--;
     str[size] = '\0';
 
     return (char*) realloc(str, size);
