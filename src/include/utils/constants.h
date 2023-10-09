@@ -23,7 +23,7 @@
 
 #define REM_CMD_TEXT "> Task deleted.\n"
 
-#define INVALID_CMD_TEXT "> Invalid use of command, use \"todo help\" to see how to use a command.\n"
+#define INVALID_CMD_TEXT "> Invalid use of command, use \"td help\" to see how to use a command.\n"
 
 #define TODO_OUTPUT_TEXT "> Todo:\n"
 
