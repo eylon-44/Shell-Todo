@@ -31,4 +31,9 @@ run: $(EXECUTABLE)
 clean:
 	rm -rf ${BIN_DIR}
 
-.PHONY: all run clean
+# add the program to the /usr/bin/ directory
+add_to_path: $(EXECUTABLE)
+	sudo cp $< /usr/bin/${COMMAND_NAME}
+	sudo chmod +x /usr/bin/${COMMAND_NAME}
+
+.PHONY: all run clean add_to_path

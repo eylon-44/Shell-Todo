@@ -129,5 +129,5 @@ uint16_t get_todos(TodoEntry** todo_list)
 // Free a todo list :: free each todo struct and its contents
 void free_todo(TodoEntry** todo, uint16_t count)
 {
-
+    
 }

@@ -8,6 +8,7 @@ SRCS := $(shell find $(SRC_DIR) -name '*.c')
 OBJS := $(patsubst $(SRC_DIR)/%.c, $(BIN_DIR)/%.o, $(SRCS))
 
 EXECUTABLE := $(BIN_DIR)/shell-todo.bin
+COMMAND_NAME := td
 
 CC     := gcc
 CFLAGS := -I$(INCLUDE_DIR) -g -Wall -Wextra
