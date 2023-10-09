@@ -14,8 +14,13 @@ void cmd_list()
 {
     TodoEntry* todo_list;
     uint16_t count = get_todos(&todo_list);
-    print_todo_list(todo_list, count);
 
+    if (count < 1) {
+        printf(NO_TODO_OUTPUT_ERROR_TEXT);
+        return;
+    }
+    
+    print_todo_list(todo_list, count);
     free_todo(&todo_list, count);
 }
 

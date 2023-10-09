@@ -29,4 +29,6 @@
 
 #define NEW_FILE_WARNING_TEXT "> Warning, created a new \".todo\" file in working directory.\n"
 
+#define NO_TODO_OUTPUT_ERROR_TEXT "> No tasks found. Use \"td help\" for instructions on how to add tasks.\n"
+
 #endif
