@@ -29,13 +29,13 @@ $ make add_to_path
 > Program added to path, use "td" to call it.
 $ td [enter your arguments here]
 ```
-if you ever want to remove it from path use:
+if you want to remove it from path you can always use:
 ```
 $ sudo rm -f /usr/bin/td
 ```
 
 ### Usage
-Adding a todo will create a _".todo"_ file in the working directory. Deleting the file will delete the tasks you added to the specific directory.
+Adding a todo will create a _".todo"_ file in the working directory. Deleting the file will delete the tasks you added for that specific directory.
 ```
 $ td help
 > Usage: td [command] [arguments]
