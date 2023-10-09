@@ -35,7 +35,7 @@ $ sudo rm -f /usr/bin/td
 ```
 
 ### Usage
-Adding a todo will create a _".todo"_ file in the working directory. Deleting the file will delete the tasks you added for that specific directory.
+Adding a task to the list will create a _".todo"_ file in the working directory. Deleting the file will delete the tasks you added for that specific directory.
 ```
 $ td help
 > Usage: td [command] [arguments]
@@ -44,5 +44,4 @@ Commands:
 	-add [text]        -> add a task into the todo list
 	-rem [index]       -> remove a task from the todo list
 	-[no command]/list -> display the todo list
-
 ```
